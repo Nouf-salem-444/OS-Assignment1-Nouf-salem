@@ -28,21 +28,23 @@ class Process implements Runnable {
     private String name; // Name of the process
     private int burstTime; // Total time the process requires to complete (in milliseconds)
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
-    private int remainingTime; // Time left for the process to finish its execution
-private int priority;//process priority
+    private int remainingTime;
+    private int priority; // Process priority
     // Constructor to initialize the process with name, burst time, and time quantum
+     static int contextSwitchCount = 0;
     public Process(String name, int burstTime, int timeQuantum) {
         this.name = name;
         this.burstTime = burstTime;
         this.timeQuantum = timeQuantum;
-        this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
-        this.priority = new Random().nextInt(10) + 1;//  Random priority between 1 and 10
+        this.remainingTime = burstTime;
+        this.priority = new Random().nextInt(10) + 1; // Random priority between 1 and 10
     }
 
 
     // This method will be called when the thread for this process is started
     @Override
     public void run() {
+        contextSwitchCount++;  // increment context switch count each time process runs
         // Simulate running for either the time quantum or remaining time, whichever is smaller
         int runTime = Math.min(timeQuantum, remainingTime); // Run for the smaller of the two times
         
@@ -145,9 +147,11 @@ private int priority;//process priority
     }
 
 
-    public String getPriority() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPriority'");
+    public int getPriority() {
+      
+ return priority;
+ //TODO Auto-generated method stub
+          //throw new UnsupportedOperationException("Unimplemented method 'getPriority'");
     }
 }
 
@@ -299,8 +303,9 @@ public class SchedulerSimulation {
         processMap.put(thread, process);
         
         // Print a message indicating the process has entered the ready queue
-        System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() + 
-                          Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
-                          " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + " │ Priority: " + Colors.GREEN + process.getPriority() + Colors.RESET);
+        System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() +  " (Priority: " + process.getPriority()
+    + ") enters the ready queue..." + Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
+                          " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + Colors.RESET);
+                          System.out.println("Total context switches :" + Process.contextSwitchCount);
     }
 }
