@@ -29,11 +29,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [nouf salem alhoity] |
+| **Student ID** | [444051460] |
+| **University Email** | 444051460@std.psau.edu.sa |
+| **GitHub Username** | [Nouf-salem-444] |
+| **Repository Link** | [https://github.com/Nouf-salem-444/OS-Assignment1-Nouf-salem] |
  
 ---
 
@@ -129,68 +129,68 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [October9,2026,12:42AM]
+**What I did**: project setup and initial testing
 
-**Details**:
+**Details**: frocked the repository,renamed it,update student iD and compiled the start code
 
-**Challenges**:
+**Challenges**: setting up the java development environment and understanging the project layout
 
-**Solution**:
+**Solution**: istalled JDK and reviewed the instructions in README
 
-**Time spent**:
-
----
-
-### Entry 2 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+**Time spent**: 2 hour
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 2 - [October 9,2026,7:01AM]
+**What I did**:implemented feature1(priority)
 
-**Details**:
+**Details**:added the priority field to the process class and set up random priority generation 
 
-**Challenges**:
+**Challenges**:integrating the priority attribute without breaking existing constructor logic 
 
-**Solution**:
+**Solution**:update the process constructor and added getter method for priority
 
-**Time spent**:
-
----
-
-### Entry 4 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+**Time spent**: 1.5 hours
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**:
+### Entry 3 - [october10,2026,9:17pm]
+**What I did**:implmented feature 2(context switch counter)
 
-**Details**:
+**Details**:added acounter to track how many time each thread switch context druing scheduling
 
-**Challenges**:
+**Challenges**:trcking preemption accurately across thread execution cycles 
 
-**Solution**:
+**Solution**:incremented the context switch counter inside the run method druing scheduling rounds
 
-**Time spent**:
+**Time spent**: 1hour
+
+---
+
+### Entry 4 - [october11,2026,3:16am]
+**What I did**:implemented feature 3(waiting time &summery table)
+
+**Details**:tracked queue entry time using system.currentTimeMilis(),calculation waiting and turnaround time and added the final summary table
+
+**Challenges**:calculating accurate delta time and formating the tabular output neatly
+
+**Solution**:recoreded timestamps upon entry,cmputed waiting time dynamically and iterated through processMap.values()to print the table
+
+**Time spent**: 2hours
+
+---
+
+### Entry 5 - [11october,2026,6:00pm]
+**What I did**:final review ,testing ,and documentaion
+
+**Details**:ran the complete simulation successfully,verified console output ,and prepared documentation
+
+**Challenges**:ensuring all project requirements and formatting guidelines were met
+
+**Solution**:double -checked outputs and ensured clean structure
+
+**Time spent**:1.5 hours
 
 ---
 
@@ -211,13 +211,13 @@
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [8 hours]
 
-**Most challenging part**:
+**Most challenging part**:implementing accurate time tracking for process waiting times across multiple context switches
 
-**Most interesting learning**:
+**Most interesting learning**:understanding how thread scheduling algorithms and time-slicted preemption work in java
 
-**What I would do differently next time**:
+**What I would do differently next time**:plan the time tracking logic structure earlier before writiting the implementation code
 
 ---
 
@@ -237,7 +237,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Through this assignment i gained a deep practical understanding of how multiple threads execute concurrently and how an operating system manages them using scheduling algorithms like Round-Robin i learned how synchronization and state transitions (from New to Runnable, Running, Waiting, and Terminated) govern thread behavior in Java implementing context switching made me realize the underlying complexity of saving and restoring thread states. Furthermore, tracking thread execution times highlighted how CPU resources are time-sliced among competing tasks ultimately, this assignment transformed abstract OS concepts into tangible programming experience]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -245,7 +245,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The most challenging part of this assignment was implementing accurate time tracking for process waiting and turnaround times across multiple context switches snce threads are paused and resumed dynamically based on the time quantum, calculating the exact duration a process spent waiting in the ready queue required precise timestamps ensuring that queueEntryTime and waitingTime were updated correctly without causing calculation drifts was tricky debugging the timing logic demanded a solid grasp of both Java concurrency and system-level scheduling mechanics]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -253,7 +253,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[To overcome the timing and logic challenges, i broke down the problem into smaller manageable steps and tested them incrementally i added descriptive print statements and used System.currentTimeMillis() at key entry and exit points in the run method to monitor state changes reviewing the Java concurrency documentation and analyzing how thread execution cycles interact with the ready queue helped clarify my implementation strategy testing the code frequently and running the simulation multiple times allowed me to catch calculation bugs early]
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -261,7 +261,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Multithreading concepts are foundational for building responsive, high-performance real-world applications across various domains for instance, web servers use multithreading to handle thousands of concurrent client requests simultaneously without blocking the main application thread desktop and mobile user interfaces rely on background threads to perform heavy computations or network calls, keeping the UI smooth and responsive operating system kernels heavily depend on thread scheduling algorithms to distribute CPU cycles fairly among active applications ensuring optimal system throughput and responsiveness]
 
 ### Optional: What would you like to learn more about?
 
@@ -293,7 +293,7 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[process is an independent execution unit with its own memory space, whereas a thread is a lightweight execution unit inside a process that shares memory in this assignment, we simulated processes using the ⁠Process⁠ class, but executed them using real Java threads created via ⁠new Thread(process)⁠ in ⁠addProcessToQueue()⁠ we used threads instead of separate operating system processes because threads have significantly lower creation overhead and allow fast, direct memory sharing through shared structures like ⁠readyQueue⁠ and ⁠processMap]
 
 ## Question 2: Ready Queue Behavior
 
@@ -305,15 +305,15 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[In Round-Robin scheduling, when a process exceeds its time quantum before finishing its execution, it is preempted and re-queued at the back of the ready queue for example, looking at my simulation output table, process P7 and P2 had longer burst times (such as 11671ms for P2) and experienced waiting times and turnaround times as they were cycled through the ready queue multiple times. This re-queueing mechanism prevents any single process from monopolizing the CPU, ensuring fair time-slicing and preventing process starvation ]
 
 Example from my output:
 ```
-[Paste a relevant snippet from your program output here showing a process being re-queued]
+[![alt text](image-1.png)]
 ```
 
 **Explanation of example:**
-[Explain what is happening in the output snippet you pasted.]
+[The output table shows the final simulation metrics for all threads managed by the Round-Robin scheduler. Each process displays its total burst time, calculated waiting time, and turnaround time. Processes with larger burst times, like P2 and P7, spent time waiting in the ready queue during context switches, resulting in higher turnaround times, while all processes successfully completed their executio]
 
 ## Question 3: Thread Lifecycle
 
@@ -323,15 +323,15 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
-1. **New**: [When is P1 in the New state?]
+1. **New**: [P1 enters the New state when instantiated using ⁠new Process(...)⁠ inside the initialization loop before it is added to the thread manager or execution queue]
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. **Runnable**: [P1 enters the New state when instantiated using ⁠new Process(...)⁠ inside the initialization loop before it is added to the thread manager or execution queue]
 
-3. **Running**: [When is P1 Running?]
+3. **Running**: [P1 enters the Running state when the scheduler dequeues it and its ⁠run()⁠ method begins executing its code logic within its allocated time quantum]
 
-4. **Waiting**: [When and why would a thread be Waiting?]
+4. **Waiting**: [P1 enters the Waiting (Timed Waiting) state when it calls ⁠Thread.sleep()⁠ during its execution cycle or when preempted and placed back into the queue]
 
-5. **Terminated**: [When is P1 Terminated?]
+5. **Terminated**: [P1 reaches the Terminated state when its remaining burst time reaches zero, finishing its ⁠run()⁠ method execution while the main thread waits for it using ⁠Thread.join()]
 
 ## Question 4: Real-World Applications
 
@@ -341,32 +341,32 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences per example)*
 
-### Example 1 (operating-system level): [Name of scenario]
+### Example 1 (operating-system level): [Operating System CPU Scheduler]
 
 **Description**:
-[Describe the real-world scenario.]
+[A modern operating system core scheduler managing multiple user applications and system background services competing for processor time]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[It guarantees fairness and responsiveness by allocating a fixed time quantum to each active process, preventing resource monopolization. In relation to our simulation, user tasks play the role of the "process", the CPU time-slice represents the "time quantum", and saving/restoring registers acts as the "context switch]
 
-### Example 2: [Name of application/scenario]
+### Example 2: [Multi-User Web Server Request Handler]
 
 **Description**:
-[Describe the real-world scenario or application.]
+[a web server (like Apache or Nginx) handling hundreds of simultaneous HTTP client requests, where each incoming request is processed using a shared thread pool.]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[Time-slicing prevents heavy requests (like large file downloads) from blocking shorter interactive requests (like loading text data), maintaining low latency. Here, each HTTP request acts as the "process", the execution slice acts as the "time quantum", and thread switching handles the "context switch]
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1.How Round-Robin scheduling allocates CPU time slices fairly using a ready queue.
+2.The differences between lightweight threads and heavy processes in memory and overhead
+3.The lifecycle states of a thread from creation to termination during simulation.
 
 **Concepts I need to study more:**
-1.
-2.
+1.Advanced thread synchronization and deadlock avoidance mechanisms.
+2.Detailed performance metrics analysis under different time quantum sizes.
 
 ---
 
@@ -375,29 +375,29 @@ Example from my output:
 > ⚠️ **WARNING:** Go through every line. Late submission costs **-1 mark per day**, and the deadline is **October 10, 2026**.
 
 **Repository**
-- [ ] Repository is **PUBLIC** (Settings → Danger Zone → Visibility)
-- [ ] Repository is renamed to `OS-Assignment1-YourFirstName-YourLastName`
-- [ ] GitHub account uses the university email (`@std.psau.edu.sa`)
+- [ x] Repository is **PUBLIC** (Settings → Danger Zone → Visibility)
+- [ x] Repository is renamed to `OS-Assignment1-YourFirstName-YourLastName`
+- [ x] GitHub account uses the university email (`@std.psau.edu.sa`)
 
 **Code**
-- [ ] Student ID is set in `SchedulerSimulation.java` (line 150)
-- [ ] Code compiles and runs with no errors
-- [ ] Feature 1 (priority), Feature 2 (context switches) and Feature 3 (waiting time table) all work
-- [ ] Each feature has clear comments
+- [x ] Student ID is set in `SchedulerSimulation.java` (line 150)
+- [x ] Code compiles and runs with no errors
+- [x ] Feature 1 (priority), Feature 2 (context switches) and Feature 3 (waiting time table) all work
+- [ x] Each feature has clear comments
 
 **Commits**
-- [ ] **At least 3 meaningful commits, ideally 6 or more**
-- [ ] **One commit per feature**
-- [ ] Commits are spread over **different dates** (not all in the last hour)
-- [ ] Everything is **pushed** to GitHub
+- [ x] **At least 3 meaningful commits, ideally 6 or more**
+- [x ] **One commit per feature**
+- [ x] Commits are spread over **different dates** (not all in the last hour)
+- [ x] Everything is **pushed** to GitHub
 
 **This file (`MY_WORK.md`)**
-- [ ] Full name and student ID filled in at the top
-- [ ] Development log has **5+ entries** on different dates
-- [ ] Reflection: 4 questions, 5-7 sentences each
-- [ ] Technical answers: 4 questions, 3-5 sentences each, with examples from **your** output
-- [ ] No `[...]` placeholders left
-- [ ] No section headers deleted
+- [ x] Full name and student ID filled in at the top
+- [ x] Development log has **5+ entries** on different dates
+- [ x] Reflection: 4 questions, 5-7 sentences each
+- [ x] Technical answers: 4 questions, 3-5 sentences each, with examples from **your** output
+- [ x] No `[...]` placeholders left
+- [ x] No section headers deleted
 
 **Video**
 - [ ] 2-3 minutes long, named `StudentID_Assignment1_Demo.mp4`
