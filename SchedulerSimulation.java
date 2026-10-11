@@ -32,18 +32,26 @@ class Process implements Runnable {
     private int priority; // Process priority
     // Constructor to initialize the process with name, burst time, and time quantum
      static int contextSwitchCount = 0;
+     private long creationTime;  // timestamp when the process is created
+     private long waitingTime =0; // total time the process has spent waiting in the ready queue
+     private long queueEntryTime; // timestamp when the process enters the ready queue
     public Process(String name, int burstTime, int timeQuantum) {
         this.name = name;
         this.burstTime = burstTime;
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime;
         this.priority = new Random().nextInt(10) + 1; // Random priority between 1 and 10
+        this.creationTime = System.currentTimeMillis(); // record the creation time of the process
+        this.queueEntryTime = System.currentTimeMillis(); // record the time when the process enters the ready queue
     }
 
 
     // This method will be called when the thread for this process is started
     @Override
     public void run() {
+        long currentTime = System.currentTimeMillis();// calculating the waiting time from the last time of exiting the queue until the current context switch
+        waitingTime += (currentTime - queueEntryTime); 
+        queueEntryTime = System.currentTimeMillis(); // update the queue entery time for the next time the process enters the ready queue
         contextSwitchCount++;  // increment context switch count each time process runs
         // Simulate running for either the time quantum or remaining time, whichever is smaller
         int runTime = Math.min(timeQuantum, remainingTime); // Run for the smaller of the two times
@@ -152,6 +160,27 @@ class Process implements Runnable {
  return priority;
  //TODO Auto-generated method stub
           //throw new UnsupportedOperationException("Unimplemented method 'getPriority'");
+    }
+public long getWaitingTime() {
+        return waitingTime;
+    }
+public long getCreationTime(){
+    return creationTime;
+}
+public long getQueueEntryTime(){
+    return queueEntryTime;
+}
+public void setQueueEntryTime(long queueEntryTime){
+    this.queueEntryTime = queueEntryTime;
+}
+public void addwatingTime(long timeSpentInQueue){
+    this.waitingTime += timeSpentInQueue;;
+}
+public long getTurnaroundTime(){
+    return waitingTime + burstTime; 
+}
+    public void setWaitingTime(long waitingTime) {
+        this.waitingTime = waitingTime;
     }
 }
 
@@ -307,5 +336,20 @@ public class SchedulerSimulation {
     + ") enters the ready queue..." + Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
                           " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + Colors.RESET);
                           System.out.println("Total context switches :" + Process.contextSwitchCount);
+                          System.out.println("\n==================================================");
+System.out.println("            PROCESS SCHEDULER SUMMARY TABLE         ");
+System.out.println("==================================================");
+System.out.printf("%-15s %-12s %-15s %-15s%n", "Process Name", "Burst Time", "Waiting Time", "Turnaround Time");
+System.out.println("--------------------------------------------------");
+
+for (Process p : processMap.values()) { // iterate through all processes stored in processMap to display the summary table
+    System.out.printf("%-15s %-12d %-15d %-15d%n", 
+        p.getName(), 
+        p.getBurstTime(), 
+        p.getWaitingTime(), 
+        p.getTurnaroundTime());
+}
+System.out.println("==================================================");
+                          
     }
 }
